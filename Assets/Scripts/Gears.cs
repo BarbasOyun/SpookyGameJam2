@@ -13,6 +13,8 @@ public class Gears : MonoBehaviour
 
     public bool hideCursorOnStart;
 
+    public GameManager gameManager;
+
     // public CanvasMain currentCanvas;
     
     [Header("Prefabs")]
@@ -32,6 +34,9 @@ public class Gears : MonoBehaviour
         {
             gears = this;
             DontDestroyOnLoad(this);
+        }else
+        {
+            gears.gameManager = gameManager;
         }
     }
     
