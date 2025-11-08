@@ -33,8 +33,6 @@ public class Gears : MonoBehaviour
             gears = this;
             DontDestroyOnLoad(this);
         }
-        else
-            Destroy(gameObject);
     }
     
     void Start()
@@ -134,6 +132,11 @@ public class Gears : MonoBehaviour
     public void LoadLevel1()
     {
         SceneManager.LoadScene("Level1");
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public static void ReloadCurrentScene()

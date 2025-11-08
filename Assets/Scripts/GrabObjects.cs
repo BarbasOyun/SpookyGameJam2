@@ -11,21 +11,52 @@ public class GrabObjects : MonoBehaviour
     public float rayDistance = 100f;
     public float grabYOffSet = .5f;
     public float throwForce = .2f;
+    private Vector3[] cameraPos = {new Vector3(-87, 24, -38), new Vector3(-12, 24, -38) };
+    private int cameraPosIndex = 0;
 
     public Rigidbody selectedObject;
     private float yPos;
     private Vector3 storedVelocity;
 
+    private Vector2 previousMousePosition;
+    public float grabMult;
+
     void Start()
     {
-        
+        Camera.main.transform.position = cameraPos[cameraPosIndex];
+        previousMousePosition = Mouse.current.position.ReadValue();
     }
 
     void Update()
     {
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            Gears.gears.LoadMainMenu();
+        }
+
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
             Gears.ReloadCurrentScene();
+        }
+
+        // Mouse Velocity
+        Vector2 currentMousePosition = Mouse.current.position.ReadValue();
+        Vector2 delta = currentMousePosition - previousMousePosition;
+        // float timeDelta = Time.deltaTime;
+        // float pixelsPerSecond = delta.magnitude / timeDelta;
+        previousMousePosition = currentMousePosition;
+        // Debug.Log("Mouse Velocity : " + delta);
+
+        if (Keyboard.current.tabKey.wasPressedThisFrame)
+        {
+            if (cameraPosIndex < cameraPos.Length - 1)
+            {
+                cameraPosIndex++;
+            }
+            else
+                cameraPosIndex = 0;
+            
+            Camera.main.transform.position = cameraPos[cameraPosIndex];
         }
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -43,7 +74,7 @@ public class GrabObjects : MonoBehaviour
                 Debug.Log("Object Clicked : " + hit.collider.gameObject.name);
                 selectedObject = hit.collider.attachedRigidbody;
                 yPos = selectedObject.position.y;
-                selectedObject.isKinematic = true;
+                // selectedObject.isKinematic = true;
             }
         }
 
@@ -52,18 +83,11 @@ public class GrabObjects : MonoBehaviour
             // Move Selected Object
             if (selectedObject)
             {
-                Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-                float distance = Vector3.Distance(ray.origin, selectedObject.position);
-                Vector3 mouseWorldPos = ray.origin + (ray.direction.normalized * distance);
-                Vector3 finalPos = new Vector3(mouseWorldPos.x, yPos + grabYOffSet, mouseWorldPos.z);
+                // MovePos();
 
-                // Debug.Log("Mouse World Pos : " + mouseWorldPos);
-                Debug.DrawRay(mouseWorldPos, Vector3.up * 10, UnityEngine.Color.green, 0.1f);
-
-                // selectedObject.position = finalPos;
-                selectedObject.MovePosition(finalPos);
-                storedVelocity = selectedObject.linearVelocity;
-                // Debug.Log("Stored Velocity" +  storedVelocity);
+                Vector3 force = new Vector3(delta.x, 0, delta.y) * grabMult;
+                // Debug.Log("Force Added : " + force);
+                selectedObject.AddForce(force);
             }
         }
 
@@ -71,10 +95,26 @@ public class GrabObjects : MonoBehaviour
         {
             if (selectedObject)
             {
-                selectedObject.isKinematic = false;
-                selectedObject.linearVelocity = storedVelocity * throwForce;
+                // selectedObject.isKinematic = false;
+                // selectedObject.linearVelocity = storedVelocity * throwForce;
                 selectedObject = null;
             }
         }
+    }
+
+    private void MovePos()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        float distance = Vector3.Distance(ray.origin, selectedObject.position);
+        Vector3 mouseWorldPos = ray.origin + (ray.direction.normalized * distance);
+        Vector3 finalPos = new Vector3(mouseWorldPos.x, yPos + grabYOffSet, mouseWorldPos.z);
+
+        // Debug.Log("Mouse World Pos : " + mouseWorldPos);
+        Debug.DrawRay(mouseWorldPos, Vector3.up * 10, UnityEngine.Color.green, 0.1f);
+
+        // selectedObject.position = finalPos;
+        selectedObject.MovePosition(finalPos);
+        storedVelocity = selectedObject.linearVelocity;
+        // Debug.Log("Stored Velocity" +  storedVelocity);
     }
 }
