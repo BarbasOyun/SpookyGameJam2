@@ -23,6 +23,11 @@ public class GrabObjects : MonoBehaviour
 
     void Update()
     {
+        if (Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            Gears.ReloadCurrentScene();
+        }
+
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             // Debug.Log("Left mouse button clicked");
@@ -58,7 +63,7 @@ public class GrabObjects : MonoBehaviour
                 // selectedObject.position = finalPos;
                 selectedObject.MovePosition(finalPos);
                 storedVelocity = selectedObject.linearVelocity;
-                Debug.Log("Stored Velocity" +  storedVelocity);
+                // Debug.Log("Stored Velocity" +  storedVelocity);
             }
         }
 
