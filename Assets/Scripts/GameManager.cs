@@ -1,13 +1,16 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public bool runFearMeter;
     public Slider fearMeter;
     public float fearReduction = .1f;
     public float fearIncrementMult = .01f;
     public GameObject person;
     public GameObject victoryPanel;
+    private Action fearMeterAction = null;
 
     [SerializeField]
     public Rigidbody[] furnitures;
@@ -15,19 +18,29 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        if (runFearMeter)
+        {
+            fearMeterAction = fearMeterUpdate;
+        }
     }
 
     void Update()
     {
-        if (fearMeter.value >= .99f)
+        fearMeterAction?.Invoke();
+    }
+
+    void fearMeterUpdate()
+    {
+        // Debug.Log("Fear Meter Update");
+
+        if (fearMeter.value >= .99f && !victoryPanel.activeSelf)
         {
             victoryPanel.SetActive(true);
         }
 
         fearMeter.value -= fearReduction;
 
-        for(int i = 0; i < furnitures.Length; i++)
+        for (int i = 0; i < furnitures.Length; i++)
         {
             Rigidbody furniture = furnitures[i];
             float distancePerson = 1 / Vector3.Distance(person.transform.position, furniture.position);

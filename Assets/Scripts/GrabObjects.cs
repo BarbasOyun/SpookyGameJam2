@@ -12,7 +12,9 @@ public class GrabObjects : MonoBehaviour
     public float rayDistance = 100f;
     // public float grabYOffSet = .5f;
     // public float throwForce = .2f;
+    public bool setCamera;
     private Vector3[] cameraPos = {new Vector3(-87, 24, -38), new Vector3(-12, 24, -38) };
+    private Action cameraction = null;
     private int cameraPosIndex = 0;
 
     public Rigidbody selectedObject;
@@ -24,9 +26,14 @@ public class GrabObjects : MonoBehaviour
     public float grabMult;
 
     void Start()
-    {
-        Camera.main.transform.position = cameraPos[cameraPosIndex];
+    {      
         previousMousePosition = Mouse.current.position.ReadValue();
+
+        if (setCamera)
+        {
+            Camera.main.transform.position = cameraPos[cameraPosIndex];
+            cameraction = CameraUpdate;
+        }
     }
 
     void Update()
@@ -41,18 +48,7 @@ public class GrabObjects : MonoBehaviour
             Gears.ReloadCurrentScene();
         }
 
-        // Change Camera
-        if (Keyboard.current.tabKey.wasPressedThisFrame)
-        {
-            if (cameraPosIndex < cameraPos.Length - 1)
-            {
-                cameraPosIndex++;
-            }
-            else
-                cameraPosIndex = 0;
-            
-            Camera.main.transform.position = cameraPos[cameraPosIndex];
-        }
+        cameraction?.Invoke();
 
         // Mouse Velocity
         Vector2 currentMousePosition = Mouse.current.position.ReadValue();
@@ -95,6 +91,7 @@ public class GrabObjects : MonoBehaviour
             }
         }
 
+        // RELEASE Object
         if (Mouse.current.leftButton.wasReleasedThisFrame)
         {
             if (selectedObject)
@@ -124,8 +121,23 @@ public class GrabObjects : MonoBehaviour
 
     private void MoveSelectedObject(Vector2 delta)
     {
-        Vector3 force = new Vector3(delta.x, 0, delta.y) * grabMult;
+        Vector3 force = new Vector3(-delta.y, 0, delta.x) * grabMult; // x y
         // Debug.Log("Force Added : " + force);
         selectedObject.AddForce(force);      
+    }
+
+    private void CameraUpdate()
+    {
+        if (Keyboard.current.tabKey.wasPressedThisFrame)
+        {
+            if (cameraPosIndex < cameraPos.Length - 1)
+            {
+                cameraPosIndex++;
+            }
+            else
+                cameraPosIndex = 0;
+
+            Camera.main.transform.position = cameraPos[cameraPosIndex];
+        }
     }
 }
