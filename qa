@@ -1,0 +1,74 @@
+[33mcommit 3c283f1b7b26790dc4b831d0cac545d5335efa91[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Yoan Lechevalier <yoan.lechevalier@gmail.com>
+Date:   Sat Nov 8 21:01:24 2025 +0100
+
+    ProtoFearSystem
+
+[33mcommit 65ab58d5efc3a6bf4bba7f38e7d758b81cd25b93[m
+Merge: 37c8d6b 2b54a65
+Author: Yoan Lechevalier <yoan.lechevalier@gmail.com>
+Date:   Sat Nov 8 18:31:34 2025 +0100
+
+    Merge branch 'master' of https://github.com/BarbasOyun/SpookyGameJam2
+
+[33mcommit 37c8d6b14e5125285fe24d0fce0b8efcf18ef541[m
+Author: Yoan Lechevalier <yoan.lechevalier@gmail.com>
+Date:   Sat Nov 8 18:31:28 2025 +0100
+
+    Final Physic Lvl1
+
+[33mcommit 2b54a650f513e0cd55009ca19cd4279f500aa216[m
+Author: Mushi <mushimotion@gmail.com>
+Date:   Sat Nov 8 18:02:58 2025 +0100
+
+    Characters _ Anim Test
+
+[33mcommit 27ae3da449675d368158ef7ed17f9e87470c56b9[m
+Merge: 49e9002 548be82
+Author: Yoan Lechevalier <yoan.lechevalier@gmail.com>
+Date:   Sat Nov 8 16:25:40 2025 +0100
+
+    Merge branch 'master' of https://github.com/BarbasOyun/SpookyGameJam2
+
+[33mcommit 49e90021af41302a0e20c95760d72750833a4b0e[m
+Author: Yoan Lechevalier <yoan.lechevalier@gmail.com>
+Date:   Sat Nov 8 16:25:34 2025 +0100
+
+    Build Ready
+
+[33mcommit 548be82b52bca90e15b390a369b323fd6c13669e[m
+Author: Virginie L <lozay.virg@gmail.com>
+Date:   Sat Nov 8 16:01:26 2025 +0100
+
+    art 2
+
+[33mcommit bb4cfa121ec518006d36f4996d217cc69af18392[m
+Merge: dcba5b8 e221d5b
+Author: Yoan Lechevalier <yoan.lechevalier@gmail.com>
+Date:   Sat Nov 8 15:45:59 2025 +0100
+
+    Merge branch 'master' of https://github.com/BarbasOyun/SpookyGameJam2
+
+[33mcommit dcba5b836bf1b4cf0631614dcb3e9901be5d3cb8[m
+Author: Yoan Lechevalier <yoan.lechevalier@gmail.com>
+Date:   Sat Nov 8 15:41:34 2025 +0100
+
+    Level1 Proto
+
+[33mcommit e221d5bf9521e6c426a20ef69ca44539d109af57[m
+Author: Virginie L <lozay.virg@gmail.com>
+Date:   Sat Nov 8 13:48:15 2025 +0100
+
+    1er asset
+
+[33mcommit 0ad47f78ed003638db9cc6a90626d21ebef051e9[m
+Author: BarbasOyun <barbasoyun@gmail.com>
+Date:   Sat Nov 8 11:05:25 2025 +0100
+
+    Add project title to README
+
+[33mcommit d1594fe45fb79dd7f86867a883455204cfa54173[m
+Author: Yoan Lechevalier <yoan.lechevalier@gmail.com>
+Date:   Sat Nov 8 10:50:19 2025 +0100
+
+    Initial Commit

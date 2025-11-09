@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public float fearReduction = .1f;
     public float fearIncrementMult = .01f;
     public GameObject person;
+    public GameObject victoryPanel;
 
     [SerializeField]
     public Rigidbody[] furnitures;
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
     {
         if (fearMeter.value >= .99f)
         {
-            Debug.Log("WIN WIN WIN");
+            victoryPanel.SetActive(true);
         }
 
         fearMeter.value -= fearReduction;
