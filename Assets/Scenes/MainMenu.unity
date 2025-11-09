@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 9abd9e3d8dcda274c892902a2a3440a5, type: 2}
-  ambiance: {fileID: 0}
-  loop: {fileID: 0}
+  ambiance: {fileID: 206561402}
+  loop: {fileID: 691273576}
   sfx: {fileID: 202069277}
   amb_20_loop: {fileID: 8300000, guid: ab91d2466dfc3ed4fba45e597a50dcf4, type: 3}
   amb_70_loop: {fileID: 8300000, guid: 877b4b63fc7e6a6458b8739caeca1a0a, type: 3}
@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 252271148}
   - component: {fileID: 252271147}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Play_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

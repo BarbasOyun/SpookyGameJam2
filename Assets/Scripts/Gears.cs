@@ -136,7 +136,7 @@ public class Gears : MonoBehaviour
 
     public void LoadLevel1()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Appart 1");
     }
 
     public void LoadLevel2()
