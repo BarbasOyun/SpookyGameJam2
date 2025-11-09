@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5fc9cb5abda0b134496b852b365516d0, type: 2}
     - target: {fileID: 919132149155446097, guid: 64941812057e1d24f98c6e18cdc0a1c5, type: 3}
       propertyPath: m_Name
-      value: P_70_Arm_porteP
+      value: P_Porte
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 64941812057e1d24f98c6e18cdc0a1c5, type: 3}
       propertyPath: m_Layer
@@ -194,4 +194,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e179e4e78ff7e48b5212b93501dff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectType: 10
+  ObjectType: 1
