@@ -37,6 +37,19 @@ public class GameManager : MonoBehaviour
         {
             victoryPanel.SetActive(true);
         }
+        
+        switch (fearMeter.value)
+        {
+            case < .5f:
+                PNJ.UpdateAnimation(1);
+                break;
+            case >= .75f:
+                PNJ.UpdateAnimation(3);
+                break;
+            default:
+                PNJ.UpdateAnimation(2);
+                break;
+        }
 
         fearMeter.value -= fearReduction;
 
