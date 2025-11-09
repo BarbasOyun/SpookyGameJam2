@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5fc9cb5abda0b134496b852b365516d0, type: 2}
     - target: {fileID: 919132149155446097, guid: cebeb08f457f6d141b169a8a361af9f2, type: 3}
       propertyPath: m_Name
-      value: M_70_Arm_porteG
+      value: P_70_Arm_porteG
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cebeb08f457f6d141b169a8a361af9f2, type: 3}
       propertyPath: m_Layer

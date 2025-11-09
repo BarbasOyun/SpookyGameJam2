@@ -41,13 +41,13 @@ public class GameManager : MonoBehaviour
         switch (fearMeter.value)
         {
             case < .5f:
-                PNJ.UpdateAnimation(1);
+                // PNJ.UpdateAnimation(1);
                 break;
             case >= .75f:
-                PNJ.UpdateAnimation(3);
+                // PNJ.UpdateAnimation(3);
                 break;
             default:
-                PNJ.UpdateAnimation(2);
+                // PNJ.UpdateAnimation(2);
                 break;
         }
 
