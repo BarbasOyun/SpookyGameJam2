@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_Vitre
+  m_Name: Mat_Miroir
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 2100000, guid: 010b3fe7e33d79d42a3ef850867011f9, type: 2}
   m_ModifiedSerializedProperties: 0
@@ -26,7 +26,9 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _Metallic: 1
+    - _Smoothness: 0
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
